@@ -1,0 +1,35 @@
+<html ng-app="notesApp">
+<head>
+    <head>
+        <title>Notes App</title>
+    </head>
+</head>
+<body ng-controller="MainCtrl as ctrl">
+
+    <p>{{ctrl.message}}, Aviv.</p>
+    <button ng-click="ctrl.changeMessage()">
+        Change message.
+    </button>
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.js">
+</script>
+
+<script type="text/javascript">
+    angular.module('notesApp', [])
+        .controller('MainCtrl', [function() {
+            var messages = ["Hello", "Goodbye"];
+            var i = 0;
+
+            self = this;
+            self.message = messages[i];
+            self.changeMessage = function() {
+                i = 1 - i;
+                //need this?
+                self.message = messages[i];
+            };
+        }]);
+
+</script>
+
+</body>
+</html>
